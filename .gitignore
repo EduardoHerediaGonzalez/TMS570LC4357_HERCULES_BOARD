@@ -1,8 +1,9 @@
 .DS_Store
 .settings/*
 .launches/*
-/targetConfigs/*
+/targetConfigs/readme.txt
 /Debug/*
 /Release/*
 TMS570LC4357_HERCULES_BOARD.dil
 TMS570LC4357_HERCULES_BOARD.hcg
+/Debug/
