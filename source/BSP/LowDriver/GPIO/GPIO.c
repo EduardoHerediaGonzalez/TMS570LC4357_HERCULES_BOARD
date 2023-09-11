@@ -16,9 +16,9 @@
 /* used headers */
 
 /* own headers */
+#include "GPIO.h"
 #include "GPIO_cfg.h"
 #include "GPIO_def.h"
-#include "GPIO.h"
 
 /*[EXPORTED]****************************************************************************/
 
