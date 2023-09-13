@@ -18,6 +18,7 @@
 /* system headers */
 
 /* exported macros */
+#define NULL ((void *) 0U)
 
 /* exported types */
 typedef unsigned char       boolean;

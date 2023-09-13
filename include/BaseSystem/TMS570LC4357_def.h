@@ -44,18 +44,20 @@
 /* system headers */
 
 /* exported macros */
-#define FLASH_BASE_ADDRESS                      (0x00000000)
-#define RAM_BASE_ADDRESS                        (0x08000000)
-#define RAM_ECC_BASE_ADDRESS                    (0x08400000)
-#define R5F_CACHE_BASE_ADDRESS                  (0x30000000)
-#define EMIF_RAM_BASE_ADDRESS                   (0x60000000)
-#define EMIF_SDRAM_BASE_ADDRESS                 (0x80000000)
-#define FLASH_ECC_OTP_EEPROM_BASE_ADDRESS       (0xF0000000)
-#define CRC2_BASE_ADDRESS                       (0xFB000000)
-#define PERIPHERALS_FRAME2_BASE_ADDRESS         (0xFC000000)
-#define CRC1_BASE_ADDRESS                       (0xFE000000)
-#define PERIPHERALS_FRAME3_BASE_ADDRESS         (0xFF000000)
-#define SYSTEM_PERIPHERALS_FRAME1_BASE_ADDRESS  (0xFFF80000)
+#define FLASH_nBASE_ADDRESS                         (0x00000000)
+#define RAM_nBASE_ADDRESS                           (0x08000000)
+#define RAM_ECC_nBASE_ADDRESS                       (0x08400000)
+#define R5F_CACHE_nBASE_ADDRESS                     (0x30000000)
+#define EMIF_RAM_nBASE_ADDRESS                      (0x60000000)
+#define EMIF_SDRAM_nBASE_ADDRESS                    (0x80000000)
+#define FLASH_ECC_OTP_EEPROM_nBASE_ADDRESS          (0xF0000000)
+#define CRC2_nBASE_ADDRESS                          (0xFB000000)
+#define PERIPHERALS_FRAME2_nBASE_ADDRESS            (0xFC000000)
+#define CRC1_nBASE_ADDRESS                          (0xFE000000)
+#define PERIPHERALS_FRAME3_nBASE_ADDRESS            (0xFF000000)
+#define SYSTEM_PERIPHERALS_FRAME1_nBASE_ADDRESS     (0xFFF80000)
+
+#define GIO_nBASE_ADDRESS                           (PERIPHERALS_FRAME3_nBASE_ADDRESS + 0x00F7BC00)
 
 /* exported types */
 

@@ -18,14 +18,18 @@
 /* system headers */
 
 /* exported macros */
-#define STD_HIGH   (0x01)
-#define STD_LOW    (0x00)
+#define STD_nLOW        (0x00)
+#define STD_nHIGH       (0x01)
 
-#define STD_ACTIVE (0x01)
-#define STD_IDLE   (0x00)
+#define STD_nIDLE       (0x00)
+#define STD_nACTIVE     (0x01)
 
-#define STD_ON     (0x01)
-#define STD_OFF    (0x00)
+#define STD_nOFF        (0x00)
+#define STD_nON         (0x01)
+
+#define STD_nNOT_OK     (0x00)
+#define STD_nOK         (0x01)
+#define STD_nUNDEFINED  (0x03)
 
 /* exported types */
 
