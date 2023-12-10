@@ -56,7 +56,7 @@ typedef struct
     uint8 u8PinBumber;
     uint8 u8PinMode;
     uint8 u8PinInitState;
-    uint8 u8Padding;
+    uint8 u8PinCurrentState;
 }GPIO_tstPortConfig;
 
 #endif /* GPIO_def_H_ */

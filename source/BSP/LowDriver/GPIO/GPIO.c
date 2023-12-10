@@ -30,12 +30,15 @@
 /*[INTERNAL]****************************************************************************/
 
 /* internal__pre-processor macros */
-#define GPIO_s_nBASE_ADDRESS    ()
+#define GPIO_s_nCLK_CTRL_REG_ADDR               (SYSTEM_PERIPHERALS_FRAME1_nBASE_ADDRESS + 0x0007FFD0)
+#define GPIO_s_nPERIPHERAL_POWER_DOWN_REG_ADDR  (PERIPHERALS_FRAME3_nBASE_ADDRESS + 0x00F780A8)
+#define GPIO_s_nPORTA_BASE_ADDR                 (GIO_nBASE_ADDRESS + 0x00000034)
+#define GPIO_s_nPORTB_BASE_ADDR                 (GIO_nBASE_ADDRESS + 0x00000054)
+#define GPIO_s_nPENA_BIT                        (8U)
+#define GPIO_s_nRESET_BIT                       (0U)
+#define GPIO_s_nPS16_BIT                        (16U)
 
 /* internal__types */
-static uint8 GPIO_s_u8ModuleInitState = (uint8)STD_nOFF;
-static volatile uint32 *GPIO_s_pu32GIOGCR0 = (uint32*)GIO_nBASE_ADDRESS;
-
 typedef struct
 {
     uint32 GIODIR;
@@ -49,14 +52,39 @@ typedef struct
 }volatile GPIO_s_tstCtrlRegs;
 
 /* private__variables */
+static uint8 GPIO_s_u8ModuleInitState = (uint8)STD_nOFF;
+static volatile uint32 *GPIO_s_pu32GIOGCR0 = (uint32*)GIO_nBASE_ADDRESS;
+static volatile uint32 *GPIO_s_pu32CLKCTRL = (uint32*)GPIO_s_nCLK_CTRL_REG_ADDR;
+static volatile uint32 *GPIO_s_pu32PSPWDDWNCL2 = (uint32*)GPIO_s_nPERIPHERAL_POWER_DOWN_REG_ADDR;
+static volatile GPIO_s_tstCtrlRegs *GPIO_s_pstPort = (GPIO_s_tstCtrlRegs*)NULL;
+static GPIO_tstPortConfig GPIO_s_astPortA[GPIO_enTotalPinNumber] = GPIO_PORTA_CONFIG_TABLE_cfg;
+static GPIO_tstPortConfig GPIO_s_astPortB[GPIO_enTotalPinNumber] = GPIO_PORTA_CONFIG_TABLE_cfg;
 
 /* private__functions */
+static void GPIO_s_vConfigPort(GPIO_tstPortConfig* pstPort)
+{
+    uint8 u8PinIndex;
+
+    for(u8PinIndex = (uint8)0U; u8PinIndex < (uint8)GPIO_enTotalPinNumber ; u8PinIndex++)
+    {
+
+    }
+}
 
 /* public_functions */
 void GPIO_vInit(void)
 {
+    *GPIO_s_pu32CLKCTRL |= (1<<GPIO_s_nPENA_BIT);   /* Release of the peripheral */
+    *GPIO_s_pu32PSPWDDWNCL2 |= (1<<GPIO_s_nPS16_BIT);   /* Enable clock of the peripheral */
+    *GPIO_s_pu32GIOGCR0 |= (1<<GPIO_s_nRESET_BIT);  /* Bring out of reset of the peripheral */
+
     if(GPIO_s_u8ModuleInitState == (uint8)STD_nOFF)
     {
+        /* Configuration of PORTA */
+        GPIO_s_vConfigPort(GPIO_s_astPortA);
+
+        /* Configuration of PORTB */
+        GPIO_s_vConfigPort(GPIO_s_astPortB);
 
         GPIO_s_u8ModuleInitState = (uint8)STD_nON;
     }

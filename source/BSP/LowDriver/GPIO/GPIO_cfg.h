@@ -39,7 +39,7 @@
     {(uint8)GPIO_enPin4,    (uint8)GPIO_enInputPullDown,    (uint8)0U}, \
     {(uint8)GPIO_enPin5,    (uint8)GPIO_enInputPullDown,    (uint8)0U}, \
     {(uint8)GPIO_enPin6,    (uint8)GPIO_enInputPullDown,    (uint8)0U}, \
-    {(uint8)GPIO_enPin7,    (uint8)GPIO_enInputPullDown,    (uint8)0U}, \
+    {(uint8)GPIO_enPin7,    (uint8)GPIO_enInputPullDown,    (uint8)0U} \
 }
 
 /** @brief     Configuration table that contain the configuration of all the pins of the PORTB.
@@ -61,7 +61,7 @@
     {(uint8)GPIO_enPin4,    (uint8)GPIO_enInputPullDown,    (uint8)0U}, \
     {(uint8)GPIO_enPin5,    (uint8)GPIO_enInputPullDown,    (uint8)0U}, \
     {(uint8)GPIO_enPin6,    (uint8)GPIO_enInputPullDown,    (uint8)0U}, \
-    {(uint8)GPIO_enPin7,    (uint8)GPIO_enInputPullDown,    (uint8)0U}, \
+    {(uint8)GPIO_enPin7,    (uint8)GPIO_enInputPullDown,    (uint8)0U} \
 }
 
 #endif /* GPIO_cfg_H_ */
